@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vinay weds Lavanya — 10th April 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Satisfy&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --blush: #f7e8e0;
+  --rose: #d4897a;
+  --deep-rose: #a85a4a;
+  --gold: #c9973a;
+  --gold-light: #e8c97a;
+  --cream: #fdf6ef;
+  --dark: #2c1a12;
+  --mid: #6b3d2e;
+  --text: #3d2215;
+  --petal1: #e8b4a0;
+  --petal2: #f2cfc0;
+  --green: #7a9a6a;
+  --green2: #5a7a4a;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Lato', sans-serif;
+  background: var(--cream);
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+/* ── FLORAL SVG DECORATIONS ── */
+.floral-corner {
+  position: absolute;
+  width: 180px; height: 180px;
+  opacity: 0.55;
+  pointer-events: none;
+}
+.floral-corner.tl { top: 0; left: 0; transform: rotate(0deg); }
+.floral-corner.tr { top: 0; right: 0; transform: rotate(90deg); }
+.floral-corner.bl { bottom: 0; left: 0; transform: rotate(270deg); }
+.floral-corner.br { bottom: 0; right: 0; transform: rotate(180deg); }
+
+/* ── COVER / HERO ── */
+.cover {
+  min-height: 100vh;
+  background: linear-gradient(160deg, #fdf0e8 0%, #f9e4d8 40%, #f3d5c5 100%);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  position: relative; overflow: hidden;
+  padding: 60px 24px;
+  text-align: center;
+}
+
+.cover-bg-flowers {
+  position: absolute; inset: 0; pointer-events: none;
+  overflow: hidden;
+}
+
+/* Animated petals */
+.petal {
+  position: absolute;
+  border-radius: 50% 0 50% 0;
+  opacity: 0;
+  animation: fall linear infinite;
+}
+@keyframes fall {
+  0%   { transform: translateY(-60px) rotate(0deg); opacity: 0; }
+  10%  { opacity: 0.7; }
+  90%  { opacity: 0.4; }
+  100% { transform: translateY(110vh) rotate(720deg); opacity: 0; }
+}
+
+.ganesha-block {
+  font-size: 13px; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 20px;
+  animation: fadeUp 1s ease 0.2s both;
+}
+.ganesha-symbol {
+  font-size: 48px; display: block; margin-bottom: 8px;
+  animation: fadeUp 1s ease 0s both;
+  filter: drop-shadow(0 2px 8px rgba(201,151,58,0.3));
+}
+
+.invite-tag {
+  font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase;
+  color: var(--rose); margin-bottom: 28px;
+  animation: fadeUp 1s ease 0.3s both;
+}
+
+.couple-names {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(52px, 10vw, 100px);
+  font-weight: 300; line-height: 1;
+  color: var(--dark);
+  animation: fadeUp 1.2s ease 0.4s both;
+}
+.couple-names em {
+  font-style: italic; color: var(--deep-rose);
+}
+.ampersand {
+  font-family: 'Satisfy', cursive;
+  font-size: clamp(36px, 6vw, 64px);
+  color: var(--gold); display: block;
+  margin: 8px 0;
+  animation: fadeUp 1.2s ease 0.5s both;
+}
+
+.divider-floral {
+  display: flex; align-items: center; gap: 16px;
+  justify-content: center; margin: 28px 0;
+  animation: fadeUp 1s ease 0.7s both;
+}
+.divider-line { width: 80px; height: 1px; background: linear-gradient(90deg, transparent, var(--rose)); }
+.divider-line.r { background: linear-gradient(90deg, var(--rose), transparent); }
+.divider-flower { font-size: 18px; color: var(--rose); }
+
+.wedding-date {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(18px, 3vw, 26px); font-weight: 400;
+  color: var(--mid); letter-spacing: 0.08em;
+  animation: fadeUp 1s ease 0.8s both;
+}
+.wedding-date strong {
+  color: var(--deep-rose); font-weight: 600;
+}
+
+.venue-text {
+  font-size: 14px; color: var(--mid); margin-top: 10px;
+  letter-spacing: 0.06em;
+  animation: fadeUp 1s ease 0.9s both;
+}
+
+.scroll-hint {
+  position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%);
+  font-size: 12px; color: var(--rose); letter-spacing: 0.15em;
+  text-transform: uppercase; animation: bounce 2s ease infinite;
+  display: flex; flex-direction: column; align-items: center; gap: 6px;
+}
+.scroll-hint::after { content: '↓'; font-size: 18px; }
+@keyframes bounce {
+  0%,100% { transform: translateX(-50%) translateY(0); }
+  50%      { transform: translateX(-50%) translateY(6px); }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── BORDER FRAME ── */
+.frame-border {
+  position: absolute; inset: 20px;
+  border: 1.5px solid rgba(212,137,122,0.3);
+  border-radius: 2px;
+  pointer-events: none;
+}
+.frame-border::before {
+  content: '';
+  position: absolute; inset: 6px;
+  border: 0.5px solid rgba(212,137,122,0.15);
+}
+
+/* ── SECTION SHARED ── */
+section {
+  padding: 80px 24px;
+  position: relative;
+  overflow: hidden;
+}
+.section-label {
+  font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 12px; text-align: center;
+}
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(28px, 5vw, 44px); font-weight: 400;
+  text-align: center; color: var(--dark); line-height: 1.2;
+  margin-bottom: 12px;
+}
+.section-title em { font-style: italic; color: var(--deep-rose); }
+.section-sub {
+  text-align: center; font-size: 14px; color: var(--mid);
+  max-width: 500px; margin: 0 auto 48px; line-height: 1.8;
+}
+
+/* ── ABOUT / BLESSING ── */
+.blessing-section {
+  background: linear-gradient(180deg, #fdf6ef 0%, #f9ede2 100%);
+  text-align: center;
+}
+.mantra-box {
+  max-width: 560px; margin: 0 auto 48px;
+  padding: 32px 36px;
+  background: rgba(255,255,255,0.7);
+  border: 1px solid rgba(212,137,122,0.2);
+  border-radius: 4px;
+  position: relative;
+}
+.mantra-box::before, .mantra-box::after {
+  content: '❧';
+  position: absolute; font-size: 22px; color: var(--gold); opacity: 0.5;
+}
+.mantra-box::before { top: 12px; left: 16px; }
+.mantra-box::after  { bottom: 12px; right: 16px; transform: rotate(180deg); }
+.mantra-text {
+  font-family: 'EB Garamond', serif;
+  font-size: 18px; line-height: 1.9; color: var(--mid);
+  font-style: italic;
+}
+.mantra-translation {
+  font-size: 12px; color: var(--rose); margin-top: 12px;
+  letter-spacing: 0.06em;
+}
+
+.families {
+  display: flex; gap: 0; max-width: 700px; margin: 0 auto;
+  border: 1px solid rgba(212,137,122,0.2);
+  border-radius: 4px; overflow: hidden;
+  background: rgba(255,255,255,0.6);
+}
+.family-side {
+  flex: 1; padding: 32px 28px; text-align: center;
+}
+.family-side:first-child {
+  border-right: 1px solid rgba(212,137,122,0.2);
+}
+.family-role {
+  font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 10px;
+}
+.family-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px; font-weight: 600; color: var(--dark); margin-bottom: 6px;
+}
+.family-parents {
+  font-size: 13px; color: var(--mid); line-height: 1.8;
+}
+
+/* ── PHOTO GALLERY ── */
+.gallery-section {
+  background: var(--dark);
+  padding: 80px 0;
+}
+.gallery-section .section-title { color: #fff; }
+.gallery-section .section-label { color: var(--gold-light); }
+.gallery-section .section-sub   { color: rgba(255,255,255,0.5); }
+
+.gallery-scroll {
+  display: flex; gap: 16px;
+  overflow-x: auto; padding: 0 24px 20px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--rose) transparent;
+}
+.gallery-scroll::-webkit-scrollbar { height: 4px; }
+.gallery-scroll::-webkit-scrollbar-track { background: transparent; }
+.gallery-scroll::-webkit-scrollbar-thumb { background: var(--rose); border-radius: 2px; }
+
+.photo-card {
+  flex-shrink: 0;
+  width: 220px; height: 320px;
+  border-radius: 12px; overflow: hidden;
+  position: relative;
+  background: linear-gradient(135deg, #3d2215, #6b3d2e);
+  display: flex; align-items: center; justify-content: center;
+  transition: transform 0.3s;
+}
+.photo-card:hover { transform: scale(1.03); }
+.photo-card:nth-child(odd)  { margin-top: 24px; }
+.photo-card:nth-child(even) { margin-bottom: 24px; }
+.photo-placeholder {
+  text-align: center; color: rgba(255,255,255,0.3);
+  font-family: 'Cormorant Garamond', serif;
+}
+.photo-placeholder .icon { font-size: 36px; margin-bottom: 8px; opacity: 0.5; }
+.photo-placeholder p { font-size: 12px; letter-spacing: 0.08em; }
+.photo-overlay {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  padding: 20px 16px 16px;
+  background: linear-gradient(transparent, rgba(0,0,0,0.6));
+  color: #fff; font-size: 12px; letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* ── EVENTS ── */
+.events-section {
+  background: linear-gradient(160deg, #fdf0e8, #f3d5c5);
+}
+.events-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px; max-width: 860px; margin: 0 auto;
+}
+.event-card {
+  background: rgba(255,255,255,0.75);
+  border: 1px solid rgba(212,137,122,0.25);
+  border-radius: 12px; padding: 32px 24px; text-align: center;
+  position: relative; overflow: hidden;
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+.event-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(168,90,74,0.12);
+}
+.event-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, var(--rose), var(--gold));
+}
+.event-icon { font-size: 32px; margin-bottom: 12px; display: block; }
+.event-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px; font-weight: 600; color: var(--dark); margin-bottom: 6px;
+}
+.event-date { font-size: 13px; color: var(--deep-rose); font-weight: 500; margin-bottom: 4px; }
+.event-time { font-size: 13px; color: var(--mid); }
+.event-venue { font-size: 12px; color: var(--rose); margin-top: 10px; letter-spacing: 0.04em; }
+
+/* ── VENUE ── */
+.venue-section {
+  background: #fdf6ef; text-align: center;
+}
+.venue-map-box {
+  max-width: 640px; margin: 0 auto;
+  border-radius: 16px; overflow: hidden;
+  border: 1px solid rgba(212,137,122,0.2);
+  box-shadow: 0 8px 40px rgba(168,90,74,0.1);
+}
+.venue-map-placeholder {
+  height: 280px;
+  background: linear-gradient(135deg, #e8d5c5, #c9a080);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  color: rgba(255,255,255,0.8);
+  font-family: 'Cormorant Garamond', serif;
+}
+.venue-map-placeholder .map-icon { font-size: 48px; margin-bottom: 12px; }
+.venue-map-placeholder h3 { font-size: 22px; font-weight: 400; }
+.venue-map-placeholder p { font-size: 13px; margin-top: 4px; opacity: 0.75; }
+.venue-info {
+  padding: 28px 32px;
+  background: rgba(255,255,255,0.8);
+}
+.venue-info h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 26px; font-weight: 500; color: var(--dark); margin-bottom: 6px;
+}
+.venue-info p { font-size: 14px; color: var(--mid); }
+
+/* ── COUNTDOWN ── */
+.countdown-section {
+  background: linear-gradient(135deg, var(--deep-rose) 0%, #7a3020 100%);
+  text-align: center; padding: 80px 24px;
+}
+.countdown-section .section-title { color: #fff; }
+.countdown-section .section-label { color: rgba(255,255,255,0.6); }
+.countdown-wrap {
+  display: flex; gap: 24px; justify-content: center; flex-wrap: wrap;
+  margin-top: 40px;
+}
+.count-box {
+  text-align: center;
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 12px; padding: 24px 28px; min-width: 100px;
+}
+.count-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 52px; font-weight: 300; color: #fff; line-height: 1;
+  display: block;
+}
+.count-label { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.6); margin-top: 8px; }
+
+/* ── FOOTER ── */
+.invite-footer {
+  background: var(--dark); color: rgba(255,255,255,0.55);
+  text-align: center; padding: 60px 24px 40px;
+}
+.footer-names {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 36px; font-weight: 300; color: #fff; margin-bottom: 4px;
+}
+.footer-names em { color: var(--gold-light); font-style: italic; }
+.footer-date-venue { font-size: 13px; color: rgba(255,255,255,0.5); margin-bottom: 28px; }
+.footer-divider { width: 60px; height: 1px; background: var(--gold); margin: 24px auto; opacity: 0.4; }
+.footer-note { font-size: 13px; line-height: 1.8; max-width: 380px; margin: 0 auto 24px; color: rgba(255,255,255,0.45); font-style: italic; }
+.footer-small { font-size: 11px; color: rgba(255,255,255,0.25); letter-spacing: 0.1em; }
+
+/* ── FLOATING FLOWER DECOR ── */
+.section-flowers-top, .section-flowers-bottom {
+  display: flex; justify-content: center;
+  gap: 8px; font-size: 22px; margin-bottom: 20px; opacity: 0.55;
+}
+.section-flowers-bottom { margin-bottom: 0; margin-top: 20px; }
+
+/* ── REVEAL ANIMATIONS ── */
+.reveal {
+  opacity: 0; transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.reveal.visible { opacity: 1; transform: none; }
+
+/* ── SCROLLING FLOWER MARQUEE ── */
+.flower-marquee {
+  overflow: hidden; padding: 12px 0;
+  background: rgba(212,137,122,0.08);
+  border-top: 1px solid rgba(212,137,122,0.15);
+  border-bottom: 1px solid rgba(212,137,122,0.15);
+}
+.flower-marquee-inner {
+  display: flex; gap: 32px; white-space: nowrap;
+  animation: marquee 18s linear infinite;
+  font-size: 13px; color: var(--rose); letter-spacing: 0.1em;
+}
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+  .families { flex-direction: column; }
+  .family-side:first-child { border-right: none; border-bottom: 1px solid rgba(212,137,122,0.2); }
+  .floral-corner { width: 110px; height: 110px; }
+  .count-box { padding: 18px 20px; min-width: 80px; }
+  .count-num { font-size: 38px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ════════════════ COVER ════════════════ -->
+<div class="cover" id="top">
+
+  <!-- Falling petals -->
+  <div class="cover-bg-flowers" id="petals"></div>
+
+  <div class="frame-border"></div>
+
+  <!-- Floral SVG corners -->
+  <svg class="floral-corner tl" viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M10 10 Q40 10 40 40 Q40 10 70 10" stroke="#d4897a" stroke-width="1" fill="none" opacity="0.6"/>
+    <circle cx="25" cy="25" r="8" fill="#e8b4a0" opacity="0.5"/>
+    <circle cx="45" cy="15" r="5" fill="#d4897a" opacity="0.4"/>
+    <circle cx="15" cy="50" r="6" fill="#f2cfc0" opacity="0.5"/>
+    <path d="M5 5 C 30 5, 50 20, 50 50 C 50 20, 80 5, 80 5" stroke="#c9973a" stroke-width="0.8" fill="none" opacity="0.4"/>
+    <ellipse cx="35" cy="55" rx="12" ry="8" fill="#e8b4a0" opacity="0.3" transform="rotate(-30 35 55)"/>
+    <ellipse cx="20" cy="35" rx="10" ry="6" fill="#d4897a" opacity="0.25" transform="rotate(15 20 35)"/>
+    <circle cx="60" cy="30" r="4" fill="#c9973a" opacity="0.4"/>
+    <circle cx="30" cy="65" r="3" fill="#7a9a6a" opacity="0.4"/>
+    <path d="M10 80 Q25 65 40 80 Q55 95 70 80" stroke="#d4897a" stroke-width="0.8" fill="none" opacity="0.35"/>
+    <ellipse cx="55" cy="70" rx="8" ry="5" fill="#f2cfc0" opacity="0.3" transform="rotate(20 55 70)"/>
+    <path d="M80 10 Q80 50 50 70 Q80 70 90 40" stroke="#7a9a6a" stroke-width="0.7" fill="none" opacity="0.3"/>
+    <circle cx="75" cy="55" r="3" fill="#7a9a6a" opacity="0.35"/>
+    <circle cx="50" cy="80" r="5" fill="#e8b4a0" opacity="0.3"/>
+  </svg>
+  <svg class="floral-corner tr" viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M10 10 Q40 10 40 40 Q40 10 70 10" stroke="#d4897a" stroke-width="1" fill="none" opacity="0.6"/>
+    <circle cx="25" cy="25" r="8" fill="#e8b4a0" opacity="0.5"/>
+    <circle cx="45" cy="15" r="5" fill="#d4897a" opacity="0.4"/>
+    <circle cx="15" cy="50" r="6" fill="#f2cfc0" opacity="0.5"/>
+    <path d="M5 5 C 30 5, 50 20, 50 50 C 50 20, 80 5, 80 5" stroke="#c9973a" stroke-width="0.8" fill="none" opacity="0.4"/>
+    <ellipse cx="35" cy="55" rx="12" ry="8" fill="#e8b4a0" opacity="0.3" transform="rotate(-30 35 55)"/>
+    <circle cx="60" cy="30" r="4" fill="#c9973a" opacity="0.4"/>
+    <circle cx="30" cy="65" r="3" fill="#7a9a6a" opacity="0.4"/>
+  </svg>
+  <svg class="floral-corner bl" viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="25" cy="25" r="8" fill="#e8b4a0" opacity="0.5"/>
+    <circle cx="45" cy="15" r="5" fill="#d4897a" opacity="0.4"/>
+    <path d="M5 5 C 30 5, 50 20, 50 50 C 50 20, 80 5, 80 5" stroke="#c9973a" stroke-width="0.8" fill="none" opacity="0.4"/>
+    <ellipse cx="35" cy="55" rx="12" ry="8" fill="#e8b4a0" opacity="0.3" transform="rotate(-30 35 55)"/>
+    <circle cx="60" cy="30" r="4" fill="#c9973a" opacity="0.4"/>
+  </svg>
+  <svg class="floral-corner br" viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="25" cy="25" r="8" fill="#e8b4a0" opacity="0.5"/>
+    <circle cx="45" cy="15" r="5" fill="#d4897a" opacity="0.4"/>
+    <path d="M5 5 C 30 5, 50 20, 50 50 C 50 20, 80 5, 80 5" stroke="#c9973a" stroke-width="0.8" fill="none" opacity="0.4"/>
+    <circle cx="60" cy="30" r="4" fill="#c9973a" opacity="0.4"/>
+  </svg>
+
+  <div>
+    <span class="ganesha-symbol">🕉</span>
+    <div class="ganesha-block">Shubh Vivah</div>
+    <div class="invite-tag">With the blessings of God & Family</div>
+
+    <div class="couple-names"><em>Vinay</em></div>
+    <div class="ampersand">&</div>
+    <div class="couple-names"><em>Lavanya</em></div>
+
+    <div class="divider-floral">
+      <span class="divider-line"></span>
+      <span class="divider-flower">🌸</span>
+      <span class="divider-flower">🌼</span>
+      <span class="divider-flower">🌸</span>
+      <span class="divider-line r"></span>
+    </div>
+
+    <div class="wedding-date">
+      <strong>10th April 2026</strong>
+    </div>
+    <div class="venue-text">Mamidipalle · Santhakaviti Mandalam</div>
+  </div>
+
+  <div class="scroll-hint">Scroll to explore</div>
+</div>
+
+<!-- ════════════════ FLOWER MARQUEE ════════════════ -->
+<div class="flower-marquee">
+  <div class="flower-marquee-inner">
+    🌸 Vinay Weds Lavanya &nbsp;✦&nbsp; 10th April 2026 &nbsp;✦&nbsp; Mamidipalle &nbsp;✦&nbsp;
+    🌺 Shubh Vivah &nbsp;✦&nbsp; With Joy & Love &nbsp;✦&nbsp; Hindu Wedding &nbsp;✦&nbsp;
+    🌸 Vinay Weds Lavanya &nbsp;✦&nbsp; 10th April 2026 &nbsp;✦&nbsp; Mamidipalle &nbsp;✦&nbsp;
+    🌺 Shubh Vivah &nbsp;✦&nbsp; With Joy & Love &nbsp;✦&nbsp; Hindu Wedding &nbsp;✦&nbsp;
+    🌸 Vinay Weds Lavanya &nbsp;✦&nbsp; 10th April 2026 &nbsp;✦&nbsp; Mamidipalle &nbsp;✦&nbsp;
+    🌺 Shubh Vivah &nbsp;✦&nbsp; With Joy & Love &nbsp;✦&nbsp; Hindu Wedding &nbsp;✦&nbsp;
+  </div>
+</div>
+
+<!-- ════════════════ BLESSING ════════════════ -->
+<section class="blessing-section reveal">
+  <div class="section-flowers-top">🌼 🌸 🌺 🌸 🌼</div>
+  <div class="section-label">Blessings & Families</div>
+  <h2 class="section-title">Together with their families,<br><em>two souls unite</em></h2>
+
+  <div class="mantra-box" style="margin-top:36px">
+    <p class="mantra-text">
+      "Mangalya tantunanena mama jeevana hetunaa,<br>
+      kanthe badhnami subhage tvam jeeva sharadaam shatam."
+    </p>
+    <p class="mantra-translation">— Traditional Hindu Wedding Mantra</p>
+  </div>
+
+  <div class="families">
+    <div class="family-side">
+      <div class="family-role">Groom's Family</div>
+      <div class="family-name">Vinay</div>
+      <div class="family-parents">
+        Son of<br>
+        <strong>Mr. & Mrs. [Groom's Parents]</strong><br>
+        Mamidipalle
+      </div>
+    </div>
+    <div class="family-side">
+      <div class="family-role">Bride's Family</div>
+      <div class="family-name">Lavanya</div>
+      <div class="family-parents">
+        Daughter of<br>
+        <strong>Mr. & Mrs. [Bride's Parents]</strong><br>
+        Santhakaviti Mandalam
+      </div>
+    </div>
+  </div>
+  <div class="section-flowers-bottom">🌼 🌸 🌺 🌸 🌼</div>
+</section>
+
+<!-- ════════════════ GALLERY ════════════════ -->
+<section class="gallery-section reveal">
+  <div class="section-label" style="color:rgba(255,255,255,0.5);padding:0 24px">Pre-Wedding</div>
+  <h2 class="section-title" style="padding:0 24px;margin-bottom:8px">Our Story in <em style="color:var(--gold-light)">Moments</em></h2>
+  <p class="section-sub" style="padding:0 24px">Memories from our journey together</p>
+
+  <div class="gallery-scroll">
+    <div class="photo-card">
+      <div class="photo-placeholder">
+        <div class="icon">🌸</div>
+        <p>Photo 1</p>
+      </div>
+      <div class="photo-overlay">Vinay & Lavanya</div>
+    </div>
+    <div class="photo-card" style="background:linear-gradient(135deg,#5a3a2a,#8a5a40)">
+      <div class="photo-placeholder">
+        <div class="icon">💐</div>
+        <p>Photo 2</p>
+      </div>
+      <div class="photo-overlay">Together</div>
+    </div>
+    <div class="photo-card" style="background:linear-gradient(135deg,#3a4a2a,#6a7a4a)">
+      <div class="photo-placeholder">
+        <div class="icon">🌺</div>
+        <p>Photo 3</p>
+      </div>
+      <div class="photo-overlay">Our Story</div>
+    </div>
+    <div class="photo-card" style="background:linear-gradient(135deg,#4a2a3a,#8a4a6a)">
+      <div class="photo-placeholder">
+        <div class="icon">✨</div>
+        <p>Photo 4</p>
+      </div>
+      <div class="photo-overlay">Forever</div>
+    </div>
+    <div class="photo-card" style="background:linear-gradient(135deg,#2a3a4a,#4a6a8a)">
+      <div class="photo-placeholder">
+        <div class="icon">🌼</div>
+        <p>Photo 5</p>
+      </div>
+      <div class="photo-overlay">Love</div>
+    </div>
+    <div class="photo-card" style="background:linear-gradient(135deg,#4a3a2a,#8a6a4a)">
+      <div class="photo-placeholder">
+        <div class="icon">💫</div>
+        <p>Photo 6</p>
+      </div>
+      <div class="photo-overlay">Always</div>
+    </div>
+  </div>
+  <p style="text-align:center;font-size:12px;color:rgba(255,255,255,0.3);margin-top:16px;letter-spacing:0.08em;">
+    ← Scroll to see more →
+  </p>
+</section>
+
+<!-- ════════════════ EVENTS ════════════════ -->
+<section class="events-section reveal">
+  <div class="section-flowers-top">🌸 🌼 🌸</div>
+  <div class="section-label">Wedding Celebrations</div>
+  <h2 class="section-title">Join Us for the <em>Festivities</em></h2>
+  <p class="section-sub">We joyfully invite you to celebrate with us</p>
+
+  <div class="events-grid">
+    <div class="event-card">
+      <span class="event-icon">🪔</span>
+      <div class="event-name">Pellikoduku / Pellikuthuru</div>
+      <div class="event-date">9th April 2026</div>
+      <div class="event-time">Morning · 9:00 AM onwards</div>
+      <div class="event-venue">📍 Mamidipalle, Santhakaviti Mandalam</div>
+    </div>
+    <div class="event-card">
+      <span class="event-icon">🌸</span>
+      <div class="event-name">Muhurtham</div>
+      <div class="event-date">10th April 2026</div>
+      <div class="event-time">Auspicious Time · As per Panchangam</div>
+      <div class="event-venue">📍 Mamidipalle, Santhakaviti Mandalam</div>
+    </div>
+    <div class="event-card">
+      <span class="event-icon">🎊</span>
+      <div class="event-name">Wedding Reception</div>
+      <div class="event-date">10th April 2026</div>
+      <div class="event-time">Evening · 6:00 PM onwards</div>
+      <div class="event-venue">📍 Mamidipalle, Santhakaviti Mandalam</div>
+    </div>
+  </div>
+  <div class="section-flowers-bottom">🌸 🌼 🌸</div>
+</section>
+
+<!-- ════════════════ VENUE ════════════════ -->
+<section class="venue-section reveal">
+  <div class="section-label">Venue</div>
+  <h2 class="section-title">Find <em>Us Here</em></h2>
+  <p class="section-sub">We look forward to welcoming you</p>
+
+  <div class="venue-map-box">
+    <div class="venue-map-placeholder">
+      <div class="map-icon">📍</div>
+      <h3>Mamidipalle</h3>
+      <p>Santhakaviti Mandalam, Andhra Pradesh</p>
+    </div>
+    <div class="venue-info">
+      <h3>Mamidipalle Village</h3>
+      <p>Santhakaviti Mandalam, Andhra Pradesh</p>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ COUNTDOWN ════════════════ -->
+<section class="countdown-section reveal">
+  <div class="section-label">Counting down to the big day</div>
+  <h2 class="section-title" style="color:#fff;">The Big Day is <em style="color:var(--gold-light)">Almost Here!</em></h2>
+  <div class="countdown-wrap" id="countdown">
+    <div class="count-box"><span class="count-num" id="days">--</span><span class="count-label">Days</span></div>
+    <div class="count-box"><span class="count-num" id="hours">--</span><span class="count-label">Hours</span></div>
+    <div class="count-box"><span class="count-num" id="minutes">--</span><span class="count-label">Minutes</span></div>
+    <div class="count-box"><span class="count-num" id="seconds">--</span><span class="count-label">Seconds</span></div>
+  </div>
+</section>
+
+<!-- ════════════════ FOOTER ════════════════ -->
+<footer class="invite-footer">
+  <div style="font-size:36px;margin-bottom:16px;">🕉</div>
+  <div class="footer-names"><em>Vinay</em> & <em>Lavanya</em></div>
+  <div class="footer-date-venue">10th April 2026 · Mamidipalle, Santhakaviti Mandalam</div>
+  <div class="footer-divider"></div>
+  <p class="footer-note">"May this wedding be the beginning of a lifetime of love, laughter, and happily ever after."</p>
+  <div style="font-size:22px;margin-bottom:20px;opacity:0.4;">🌸 🌼 🌺 🌼 🌸</div>
+  <p class="footer-small">With love & blessings · Vinay Weds Lavanya · 2026</p>
+</footer>
+
+<script>
+// ── FALLING PETALS ──
+const petalContainer = document.getElementById('petals');
+const colors = ['#e8b4a0','#f2cfc0','#d4897a','#c9973a','#f5d5c0','#f0b8a0'];
+for (let i = 0; i < 28; i++) {
+  const p = document.createElement('div');
+  p.className = 'petal';
+  const size = 8 + Math.random() * 14;
+  p.style.cssText = `
+    width:${size}px; height:${size * 0.7}px;
+    left:${Math.random() * 100}%;
+    background:${colors[Math.floor(Math.random() * colors.length)]};
+    animation-duration:${6 + Math.random() * 10}s;
+    animation-delay:${Math.random() * 8}s;
+    opacity:0;
+  `;
+  petalContainer.appendChild(p);
+}
+
+// ── COUNTDOWN ──
+function updateCountdown() {
+  const wedding = new Date('2026-04-10T09:00:00');
+  const now = new Date();
+  const diff = wedding - now;
+  if (diff <= 0) {
+    document.getElementById('days').textContent = '0';
+    document.getElementById('hours').textContent = '0';
+    document.getElementById('minutes').textContent = '0';
+    document.getElementById('seconds').textContent = '0';
+    return;
+  }
+  document.getElementById('days').textContent    = Math.floor(diff / 86400000);
+  document.getElementById('hours').textContent   = Math.floor((diff % 86400000) / 3600000);
+  document.getElementById('minutes').textContent = Math.floor((diff % 3600000) / 60000);
+  document.getElementById('seconds').textContent = Math.floor((diff % 60000) / 1000);
+}
+updateCountdown();
+setInterval(updateCountdown, 1000);
+
+// ── SCROLL REVEAL ──
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.12 });
+reveals.forEach(r => observer.observe(r));
+</script>
+</body>
+</html>
